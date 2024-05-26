@@ -10,17 +10,23 @@
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image: url('/1\ satanstodoapp\ background\ photo.jpg'); /* Add the path to your image */
   background-repeat: no-repeat;
-  height: 100%;
-  width: 100%;
+  min-height: 100vh;
+  min-width: 100vw;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+#root {
+  height: 100vh;
 }
 

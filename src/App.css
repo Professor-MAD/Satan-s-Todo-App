@@ -10,15 +10,14 @@
   font-family: Arial, sans-serif;
 }
 
-.App-header {
-  color: #ff0000;
-}
-
 /* src/App.css */
 .app-container {
+  display: flex;
+  flex-direction: column;
   text-align: center;
   color: #fff;
   padding: 20px;
+  height: 100%;
 }
 
 
@@ -86,4 +85,24 @@
 
 .day {
   margin-right: 10px;
+}
+
+.todo-content-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: blue;
+  height: 90%;
+  width: 90%;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: red;
+  min-height: 10%;
+  width: 100%;
 }
