@@ -1,38 +1,89 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  background-color: #333;
+  color: #fff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-family: Arial, sans-serif;
 }
 
-.App-link {
-  color: #61dafb;
+.App-header {
+  color: #ff0000;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* src/App.css */
+.app-container {
+  text-align: center;
+  color: #fff;
+  padding: 20px;
+}
+
+
+.my-day {
+  font-family: 'Hellbone-demo', sans-serif; /* Use the 'Hellbone-demo' font for the h1 element */
+  display: flex;
+  flex-direction: row;
+  justify-content:flex-start;
+  align-items:flex-start; /* Position the element absolutely */
+  top: 5px; /* Distance from the top */
+  left: 20px; /* Distance from the left */
+  color: black; /* Text color */
+  font-size: 5rem;
+  letter-spacing: 5px;
+  text-shadow: 
+    -1px -1px 0 white,  
+     1px -1px 0 white,
+    -1px  1px 0 white,
+     1px  1px 0 white;
+  margin: 0;
+}
+
+.date-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.date {
+  font-family: 'Hellbone-demo', sans-serif; /* Use the 'Hellbone-demo' font for the h1 element */
+  display: flex;
+  flex-direction: row;
+  justify-content:flex-start;
+  align-items:flex-start; /* Position the element absolutely */
+  color: black; /* Text color */
+  font-size: 2rem;
+  letter-spacing: 5px;
+  text-shadow: 
+    -1px -1px 0 white,  
+     1px -1px 0 white,
+    -1px  1px 0 white,
+     1px  1px 0 white;
+  margin: 0;
+
+}
+
+.date-numbers {
+  font-family: 'Dystopian-future', sans-serif; /* Use the 'Hellbone-demo' font for the h1 element */
+  display: flex;
+  flex-direction: row;
+  justify-content:flex-start;
+  align-items:flex-start; /* Position the element absolutely */
+  color: black; /* Text color */
+  font-size: 35px;
+  letter-spacing: 10px;
+  text-shadow: 
+    -1px -1px 0 white,  
+     1px -1px 0 white,
+    -1px  1px 0 white,
+     1px  1px 0 white;
+  margin: 0;
+  margin-right: 10px;
+}
+
+.day {
+  margin-right: 10px;
 }

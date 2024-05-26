@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from 'react';
+import './App.css'; // Make sure to create this file for additional styles if needed
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-container">
+      <h1 className="my-day">MY DAY</h1>
+      <div className='date-wrap'>
+        <h3 className="date day">Sunday</h3>
+        <h3 className='date-numbers'>26</h3>
+        <h3 className='date'>May</h3>
+      </div>
     </div>
   );
-}
+};
 
 export default App;

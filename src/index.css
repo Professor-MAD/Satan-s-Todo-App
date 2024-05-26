@@ -1,13 +1,26 @@
+/* index.css */
+@font-face {
+  font-family: 'Hellbone-demo';
+  src: url('/Hellbone-Demo.ttf') format('truetype'); /* Adjust the path to your font file */
+}
+
+@font-face {
+  font-family: 'Dystopian-future';
+  src: url('/Dystopian\ Future.ttf') format('truetype');
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url('/1\ satanstodoapp\ background\ photo.jpg'); /* Add the path to your image */
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
