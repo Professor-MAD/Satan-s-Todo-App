@@ -16,7 +16,7 @@
   flex-direction: column;
   text-align: center;
   color: #fff;
-  padding: 20px;
+
   height: 100%;
 }
 
@@ -27,8 +27,6 @@
   flex-direction: row;
   justify-content:flex-start;
   align-items:flex-start; /* Position the element absolutely */
-  top: 5px; /* Distance from the top */
-  left: 20px; /* Distance from the left */
   color: black; /* Text color */
   font-size: 5rem;
   letter-spacing: 5px;
@@ -40,11 +38,20 @@
   margin: 0;
 }
 
+.my-day-container {
+  display: flex;
+  flex-direction: row;
+  justify-content:flex-start;
+  align-items:flex-start; /* Position the element absolutely */
+  margin-left: 10px;
+}
+
 .date-wrap {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
+  margin-left: 10px;
 }
 
 .date {
@@ -92,17 +99,83 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  background-color: blue;
-  height: 90%;
-  width: 90%;
+ 
+  background-blend-mode: multiply; /* Adjust as needed */
+  border-radius: 30px;
+  height: 80%;
+  width: 100%;
 }
 
 .footer-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: flex-start;
-  background-color: red;
+  background: linear-gradient(to bottom, rgb(51, 49, 49), rgba(51, 49, 49, 0));
   min-height: 10%;
-  width: 100%;
+  width: 100vw;
+  margin-top: 5px;
+}
+
+.hamburger-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 33%;
+ 
+}
+
+.add-todo-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 33%;
+
+}
+
+.satan-speaks-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 33%;
+ 
+}
+
+.hamburger-icon-image {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 50%;
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+
+.add-todo-icon-image {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 50%;
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+
+.satan-speaks-icon-image {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 50%;
+  margin-bottom: 10px;
+  margin-top: 5px;
 }

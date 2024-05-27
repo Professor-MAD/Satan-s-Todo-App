@@ -15,11 +15,71 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url('/1\ satanstodoapp\ background\ photo.jpg'); /* Add the path to your image */
   background-repeat: no-repeat;
   min-height: 100vh;
   min-width: 100vw;
+  animation-name: slideshow;
+  animation-duration: 90s;
+  animation-iteration-count: infinite;
 }
+
+@keyframes slideshow {
+  0% {
+      background-image: url('/1\ satanstodoapp\ background\ photo.jpg');
+  }
+  6.25% {
+      background-image: url('/2\ satanstodoapp\ background\ photo.jpg');
+  }
+  12.5% {
+      background-image: url('/3\ satanstodoapp\ background\ photo.jpg');
+  }
+  18.75% {
+      background-image: url('/4\ satanstodoapp\ background\ photo.jpg');
+  }
+  25% {
+      background-image: url('/5\ 1\ satanstodoapp\ background\ photo.jpg');
+  }
+   31.25% {
+      background-image: url('/6\ satanstodoapp\ background\ photo.jpg');
+  }
+   37.5% {
+      background-image: url('/7\ satanstodoapp\ background\ photo.jpg');
+  }
+   43.75% {
+      background-image: url('/8\ satanstodoapp\ background\ photo.jpg');
+  }
+   50% {
+      background-image: url('/9\ satanstodoapp\ background\ photo.jpg');
+  }
+   56.25% {
+      background-image: url('/10\ satanstodoapp\ background\ photo.jpg');
+  }
+   62.5% {
+      background-image: url('/11\ satanstodoapp\ background\ photo.jpg');
+  }
+   68.5% {
+      background-image: url('/12\ satanstodoapp\ background\ photo.jpg');
+  }
+   73.75% {
+      background-image: url('/13\ satanstodoapp\ background\ photo.jpg');
+  }
+   80% {
+      background-image: url('/14\ satanstodoapp\ background\ photo.jpg');
+  }
+   86.25% {
+      background-image: url('/15\ satanstodoapp\ background\ photo.jpg');
+  }
+   92.5% {
+      background-image: url('/16\ satanstodoapp\ background\ photo.jpg');
+  }
+   100% {
+      background-image: url('/1\ satanstodoapp\ background\ photo.jpg');
+  }
+ 
+}
+
+
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
