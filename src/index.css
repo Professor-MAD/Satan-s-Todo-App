@@ -9,15 +9,20 @@
   src: url('/Dystopian\ Future.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'Hellscourt';
+  src: url('/Hellscourt.ttf') format('truetype');
+}
+
 body {
   display: flex;
   flex-direction: column;
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-repeat: no-repeat;
   min-height: 100vh;
   min-width: 100vw;
+  background-repeat: no-repeat;
   animation-name: slideshow;
   animation-duration: 90s;
   animation-iteration-count: infinite;

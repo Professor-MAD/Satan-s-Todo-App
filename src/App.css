@@ -1,3 +1,10 @@
+/* Updated App.css */
+
+@font-face {
+  font-family: 'Hellscourt';
+  src: url('./fonts/Hellscourt.ttf') format('truetype');
+}
+
 .App {
   text-align: center;
   background-color: #333;
@@ -10,100 +17,35 @@
   font-family: Arial, sans-serif;
 }
 
-/* src/App.css */
 .app-container {
   display: flex;
   flex-direction: column;
   text-align: center;
   color: #fff;
-
   height: 100%;
 }
 
-
 .my-day {
-  font-family: 'Hellbone-demo', sans-serif; /* Use the 'Hellbone-demo' font for the h1 element */
+  font-family: 'Hellbone-demo', sans-serif;
   display: flex;
-  flex-direction: row;
-  justify-content:flex-start;
-  align-items:flex-start; /* Position the element absolutely */
-  color: black; /* Text color */
+  justify-content: flex-start;
+  align-items: flex-start;
+  color: black;
   font-size: 5rem;
   letter-spacing: 5px;
   text-shadow: 
     -1px -1px 0 white,  
-     1px -1px 0 white,
+    1px -1px 0 white,
     -1px  1px 0 white,
-     1px  1px 0 white;
+    1px  1px 0 white;
   margin: 0;
 }
 
 .my-day-container {
   display: flex;
-  flex-direction: row;
-  justify-content:flex-start;
-  align-items:flex-start; /* Position the element absolutely */
-  margin-left: 10px;
-}
-
-.date-wrap {
-  display: flex;
-  flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
   margin-left: 10px;
-}
-
-.date {
-  font-family: 'Hellbone-demo', sans-serif; /* Use the 'Hellbone-demo' font for the h1 element */
-  display: flex;
-  flex-direction: row;
-  justify-content:flex-start;
-  align-items:flex-start; /* Position the element absolutely */
-  color: black; /* Text color */
-  font-size: 2rem;
-  letter-spacing: 5px;
-  text-shadow: 
-    -1px -1px 0 white,  
-     1px -1px 0 white,
-    -1px  1px 0 white,
-     1px  1px 0 white;
-  margin: 0;
-
-}
-
-.date-numbers {
-  font-family: 'Dystopian-future', sans-serif; /* Use the 'Hellbone-demo' font for the h1 element */
-  display: flex;
-  flex-direction: row;
-  justify-content:flex-start;
-  align-items:flex-start; /* Position the element absolutely */
-  color: black; /* Text color */
-  font-size: 35px;
-  letter-spacing: 10px;
-  text-shadow: 
-    -1px -1px 0 white,  
-     1px -1px 0 white,
-    -1px  1px 0 white,
-     1px  1px 0 white;
-  margin: 0;
-  margin-right: 10px;
-}
-
-.day {
-  margin-right: 10px;
-}
-
-.todo-content-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
- 
-  background-blend-mode: multiply; /* Adjust as needed */
-  border-radius: 30px;
-  height: 80%;
-  width: 100%;
 }
 
 .footer-container {
@@ -117,65 +59,116 @@
   margin-top: 5px;
 }
 
-.hamburger-icon {
+.hamburger-icon, .add-todo-icon, .satan-speaks-icon {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100%;
   width: 33%;
- 
 }
 
-.add-todo-icon {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 33%;
-
-}
-
-.satan-speaks-icon {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 33%;
- 
-}
-
-.hamburger-icon-image {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
+.hamburger-icon-image, .add-todo-icon-image, .satan-speaks-icon-image {
   width: 50%;
-  margin-bottom: 10px;
-  margin-top: 5px;
+  margin: 5px 0 10px;
+  cursor: pointer;
 }
 
-.add-todo-icon-image {
+.todo-content-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 50%;
-  margin-bottom: 10px;
-  margin-top: 5px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-blend-mode: multiply;
+  border-radius: 30px;
+  height: 80%;
+  width: 100%;
+  overflow-y: auto;
 }
 
-.satan-speaks-icon-image {
+.todo-input {
+  flex: 1;
+  padding: 10px;
+  font-size: 2.5rem;
+  font-family: 'Hellscourt', sans-serif;
+  background-color: black;
+  color: white;
+}
+
+.add-todo-button {
+  padding: 10px;
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+  font-family: 'Hellscourt', sans-serif;
+}
+
+.todo-item {
+  background-size: cover;
+  background-position: center;
+  padding: 10px;
+  margin: 10px;
+  width: 90%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center; /* Align items vertically */
+  justify-content: space-between;
+}
+
+.todo-text {
+  font-family: 'Hellscourt', sans-serif;
+  color: white;
+  text-shadow: 
+    -1px -1px 0 black,  
+    1px -1px 0 black,
+    -1px  1px 0 black,
+    1px  1px 0 black;
+  font-size: 3rem;
+  flex-grow: 1; /* Take up remaining space */
+  margin: 0 10px;
+}
+
+.todo-icon {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.starred {
+  order: -1; /* Push starred todos to the top */
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.placardImages {
+  display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  width: 50%;
-  margin-bottom: 10px;
-  margin-top: 5px;
+  height: 20%;
+  width: 100%;
 }
+
+.todo-input-container {
+  position: fixed;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(51, 49, 49, 0.9);
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  z-index: 1; /* Ensure it appears above other content */
+}
+

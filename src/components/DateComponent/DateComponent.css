@@ -1,0 +1,27 @@
+/* src/components/DateComponent/DateComponent.css */
+.date-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 10px;
+  }
+  
+  .day, .date-numbers, .month {
+    font-family: 'Hellbone-demo', sans-serif;
+    color: black;
+    font-size: 2rem;
+    letter-spacing: 5px;
+    text-shadow: 
+      -1px -1px 0 white,  
+       1px -1px 0 white,
+      -1px  1px 0 white,
+       1px  1px 0 white;
+    margin: 0 10px 0 0;
+  }
+  
+  .date-numbers {
+    font-size: 35px;
+    letter-spacing: 10px;
+  }
+  
