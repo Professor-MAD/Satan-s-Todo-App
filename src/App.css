@@ -61,7 +61,9 @@
   min-height: 10%;
   width: 100vw;
   margin-top: 5px;
+  z-index: 2; /* Set a higher z-index to ensure the footer appears above the side navigation */
 }
+
 
 .hamburger-icon, .add-todo-icon, .satan-speaks-icon {
   display: flex;
