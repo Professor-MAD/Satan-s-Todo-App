@@ -1,12 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
 import DateComponent from './components/DateComponent/DateComponent';
 import './fonts/Hellscourt.ttf';
 
 const App = () => {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(() => {
+    // Load todos from session storage when the component mounts
+    const savedTodos = sessionStorage.getItem('todos');
+    return savedTodos ? JSON.parse(savedTodos) : [];
+  });
   const [newTodo, setNewTodo] = useState('');
   const [showInput, setShowInput] = useState(false);
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    // Save todos to session storage whenever they change
+    sessionStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos]);
 
   const handleAddTodo = () => {
     if (newTodo.trim() !== '') {
@@ -21,14 +31,14 @@ const App = () => {
   };
 
   const handleComplete = (index) => {
-    const updatedTodos = todos.map((todo, i) => 
+    const updatedTodos = todos.map((todo, i) =>
       i === index ? { ...todo, isCompleted: !todo.isCompleted } : todo
     );
     setTodos(updatedTodos);
   };
 
   const handleStar = (index) => {
-    const updatedTodos = todos.map((todo, i) => 
+    const updatedTodos = todos.map((todo, i) =>
       i === index ? { ...todo, isStarred: !todo.isStarred } : todo
     );
     setTodos(updatedTodos);
@@ -39,11 +49,52 @@ const App = () => {
     setTodos(updatedTodos);
   };
 
+  const handleClickOutside = (event) => {
+    if (inputRef.current && !inputRef.current.contains(event.target)) {
+      setShowInput(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   const placardImages = [
     '/images/task-one-placard.png',
     '/images/task-two-placard.png',
     '/images/task-three-placard.png'
   ];
+
+  useEffect(() => {
+    const resizeText = () => {
+      const todos = document.querySelectorAll('.todo-text');
+      todos.forEach(todo => {
+        const containerWidth = todo.offsetWidth;
+        const textWidth = todo.scrollWidth;
+        const fontSize = parseFloat(window.getComputedStyle(todo).fontSize);
+
+        if (textWidth > containerWidth) {
+          const newFontSize = (containerWidth / textWidth) * fontSize * 0.9;
+          todo.style.fontSize = newFontSize + 'px';
+        } else {
+          todo.style.fontSize = ''; // Reset font size if text fits within container
+        }
+      });
+    };
+
+    // Call the resizeText function whenever the window is resized or the text changes
+    window.addEventListener('resize', resizeText);
+    document.addEventListener('DOMContentLoaded', resizeText);
+
+    // Clean up the event listeners when the component unmounts
+    return () => {
+      window.removeEventListener('resize', resizeText);
+      document.removeEventListener('DOMContentLoaded', resizeText);
+    };
+  }, []); // Empty dependency array ensures this effect runs only once
 
   return (
     <div className="app-container">
@@ -53,20 +104,20 @@ const App = () => {
       <div className='todo-content-container'>
         {todos.map((todo, index) => (
           <div key={index} className={`todo-item ${todo.isStarred ? 'starred' : ''}`} style={{ backgroundImage: `url(${placardImages[index % 3]})` }}>
-            <img 
+            <img
               src={todo.isCompleted ? '/images/circle-check-off-fire.png' : '/images/circle-check-off.png'}
               alt="complete-icon"
               onClick={() => handleComplete(index)}
               className="todo-icon"
             />
             <p className={`todo-text ${todo.isCompleted ? 'completed' : ''}`}>{todo.text}</p>
-            <img 
+            <img
               src={todo.isStarred ? '/images/pentagram-gold.png' : '/images/pentagram-black.png'}
               alt="star-icon"
               onClick={() => handleStar(index)}
               className="todo-icon"
             />
-            <img 
+            <img
               src="/images/garbage-black.png"
               alt="delete-icon"
               onClick={() => handleDelete(index)}
@@ -89,7 +140,7 @@ const App = () => {
       </footer>
 
       {showInput && (
-        <div className="todo-input-container">
+        <div className="todo-input-container" ref={inputRef}>
           <input
             type="text"
             value={newTodo}

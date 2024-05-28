@@ -14,6 +14,18 @@
   src: url('/Hellscourt.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'hellmuth';
+  src: url('./hellmuth.ttf') format('truetype');
+}
+
+
+body:before {
+  content: url('/1\ satanstodoapp\ background\ photo.jpg') url('/2\ satanstodoapp\ background\ photo.jpg') url('/3\ satanstodoapp\ background\ photo.jpg') url('/4\ satanstodoapp\ background\ photo.jpg') url('/5\ 1\ satanstodoapp\ background\ photo.jpg') url('/6\ satanstodoapp\ background\ photo.jpg') url('/7\ satanstodoapp\ background\ photo.jpg') url('/8\ satanstodoapp\ background\ photo.jpg') url('/9\ satanstodoapp\ background\ photo.jpg') url('/10\ satanstodoapp\ background\ photo.jpg') url('/11\ satanstodoapp\ background\ photo.jpg') url('/12\ satanstodoapp\ background\ photo.jpg') url('/13\ satanstodoapp\ background\ photo.jpg') url('/14\ satanstodoapp\ background\ photo.jpg') url('/15\ satanstodoapp\ background\ photo.jpg') url('/16\ satanstodoapp\ background\ photo.jpg');
+  display: none;
+}
+
+
 body {
   display: flex;
   flex-direction: column;
@@ -22,10 +34,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
   min-width: 100vw;
+  background-image: url('/1\ satanstodoapp\ background\ photo.jpg');
   background-repeat: no-repeat;
   animation-name: slideshow;
-  animation-duration: 90s;
+  animation-duration: 120s;
   animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  background-color: url('/1\ satanstodoapp\ background\ photo.jpg')
 }
 
 @keyframes slideshow {
@@ -82,9 +97,6 @@ body {
   }
  
 }
-
-
-
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
