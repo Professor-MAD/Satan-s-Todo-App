@@ -1,6 +1,5 @@
-// src/components/SideNav/SideNav.js
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import './SideNav.css';
 
 const SideNav = ({ isVisible, onClose }) => {
@@ -9,8 +8,22 @@ const SideNav = ({ isVisible, onClose }) => {
   const [showInput, setShowInput] = useState(false);
   const [editIndex, setEditIndex] = useState(-1); // -1 means no category is being edited
 
+  useEffect(() => {
+    // Load categories from session storage when the component mounts
+    const savedCategories = JSON.parse(sessionStorage.getItem('categories'));
+    if (savedCategories) {
+      setCategories(savedCategories);
+    }
+  }, []);
+
+  useEffect(() => {
+    // Save categories to session storage whenever they change
+    sessionStorage.setItem('categories', JSON.stringify(categories));
+  }, [categories]);
+
   const handleCreateCategoryClick = () => {
-    setShowInput(true);
+    setShowInput(!showInput);
+    setNewCategory(''); // Clear the input field when toggling
   };
 
   const handleInputChange = (e) => {
@@ -40,6 +53,16 @@ const SideNav = ({ isVisible, onClose }) => {
     setCategories(updatedCategories);
   };
 
+  const onDragEnd = (result) => {
+    if (!result.destination) return;
+
+    const items = Array.from(categories);
+    const [reorderedItem] = items.splice(result.source.index, 1);
+    items.splice(result.destination.index, 0, reorderedItem);
+
+    setCategories(items);
+  };
+
   return (
     <div className={`side-nav ${isVisible ? 'visible' : ''}`}>
       <button className="close-btn" onClick={onClose}>X</button>
@@ -61,39 +84,61 @@ const SideNav = ({ isVisible, onClose }) => {
           placeholder="enter category name"
         />
       )}
-      {categories.map((category, index) => (
-        <div key={index} className='category-container'>
-          {editIndex === index ? (
-            <input
-              type="text"
-              className="category-edit-input"
-              value={category}
-              onChange={(e) => handleEditChange(e, index)}
-              autoFocus
-              onBlur={() => setEditIndex(-1)}
-            />
-          ) : (
-            <>
-              <a className='other-drop-down-styles' href={`#category-${index}`}>
-                {category}
-              </a>
-              <div className="category-count">0</div>
-              <img
-                src='edit-satan.png'
-                alt='edit'
-                className='edit-icon'
-                onClick={() => handleEditCategory(index)}
-              />
-              <img
-                src='garbage-black.png'
-                alt='delete'
-                className='delete-icon'
-                onClick={() => handleDeleteCategory(index)}
-              />
-            </>
+      <DragDropContext onDragEnd={onDragEnd}>
+        <Droppable droppableId="categories">
+          {(provided) => (
+            <div
+              className="categories-list"
+              {...provided.droppableProps}
+              ref={provided.innerRef}
+            >
+              {categories.map((category, index) => (
+                <Draggable key={index} draggableId={index.toString()} index={index}>
+                  {(provided) => (
+                    <div
+                      className='category-container'
+                      ref={provided.innerRef}
+                      {...provided.draggableProps}
+                      {...provided.dragHandleProps}
+                    >
+                      {editIndex === index ? (
+                        <input
+                          type="text"
+                          className="category-edit-input"
+                          value={category}
+                          onChange={(e) => handleEditChange(e, index)}
+                          autoFocus
+                          onBlur={() => setEditIndex(-1)}
+                        />
+                      ) : (
+                        <>
+                          <a className='other-drop-down-styles' href={`#category-${index}`}>
+                            {category}
+                          </a>
+                          <div className="category-count">0</div>
+                          <img
+                            src='edit-satan.png'
+                            alt='edit'
+                            className='edit-icon'
+                            onClick={() => handleEditCategory(index)}
+                          />
+                          <img
+                            src='garbage-black.png'
+                            alt='delete'
+                            className='delete-icon'
+                            onClick={() => handleDeleteCategory(index)}
+                          />
+                        </>
+                      )}
+                    </div>
+                  )}
+                </Draggable>
+              ))}
+              {provided.placeholder}
+            </div>
           )}
-        </div>
-      ))}
+        </Droppable>
+      </DragDropContext>
     </div>
   );
 };
