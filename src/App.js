@@ -27,7 +27,7 @@ const App = () => {
   // Handlers for Todo Actions
   const handleAddTodo = () => {
     if (newTodo.trim() !== '') {
-      setTodos([...todos, { text: newTodo, isCompleted: false, isStarred: false }]);
+      setTodos([...todos, { text: newTodo, isCompleted: false, isStarred: false, tags: [] }]);
       setNewTodo('');
       setShowInput(false);
     }
@@ -54,6 +54,10 @@ const App = () => {
   const handleDelete = (index) => {
     const updatedTodos = todos.filter((_, i) => i !== index);
     setTodos(updatedTodos);
+  };
+
+  const handleTag = (index) => {
+    // Handle tag functionality here
   };
 
   const handleClickOutside = (event) => {
@@ -129,6 +133,12 @@ const App = () => {
               className="todo-icon"
             />
             <p className={`todo-text ${todo.isCompleted ? 'completed' : ''}`}>{todo.text}</p>
+            <img
+              src="/images/tag-satan.png"
+              alt="tag-icon"
+              onClick={() => handleTag(index)}
+              className="todo-icon"
+            />
             <img
               src={todo.isStarred ? '/images/pentagram-gold.png' : '/images/pentagram-black.png'}
               alt="star-icon"

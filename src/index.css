@@ -25,7 +25,6 @@ body:before {
   display: none;
 }
 
-
 body {
   display: flex;
   flex-direction: column;
@@ -40,7 +39,7 @@ body {
   animation-duration: 120s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
-  background-color: url('/1\ satanstodoapp\ background\ photo.jpg')
+  background-color: url('/1\ satanstodoapp\ background\ photo.jpg');
 }
 
 @keyframes slideshow {
