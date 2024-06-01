@@ -21,7 +21,7 @@
 
 
 body:before {
-  content: url('/1\ satanstodoapp\ background\ photo.jpg') url('/2\ satanstodoapp\ background\ photo.jpg') url('/3\ satanstodoapp\ background\ photo.jpg') url('/4\ satanstodoapp\ background\ photo.jpg') url('/5\ 1\ satanstodoapp\ background\ photo.jpg') url('/6\ satanstodoapp\ background\ photo.jpg') url('/7\ satanstodoapp\ background\ photo.jpg') url('/8\ satanstodoapp\ background\ photo.jpg') url('/9\ satanstodoapp\ background\ photo.jpg') url('/10\ satanstodoapp\ background\ photo.jpg') url('/11\ satanstodoapp\ background\ photo.jpg') url('/12\ satanstodoapp\ background\ photo.jpg') url('/13\ satanstodoapp\ background\ photo.jpg') url('/14\ satanstodoapp\ background\ photo.jpg') url('/15\ satanstodoapp\ background\ photo.jpg') url('/16\ satanstodoapp\ background\ photo.jpg');
+  content: url('/1\ satanstodoapp\ background\ photo.jpg') url('/2\ satanstodoapp\ background\ photo.jpg') url('/3\ satanstodoapp\ background\ photo.jpg') url('/4\ satanstodoapp\ background\ photo.jpg') url('/5\ satanstodoapp\ background\ photo.jpg') url('/6\ satanstodoapp\ background\ photo.jpg') url('/7\ satanstodoapp\ background\ photo.jpg') url('/8\ satanstodoapp\ background\ photo.jpg') url('/9\ satanstodoapp\ background\ photo.jpg') url('/10\ satanstodoapp\ background\ photo.jpg') url('/11\ satanstodoapp\ background\ photo.jpg') url('/12\ satanstodoapp\ background\ photo.jpg') url('/13\ satanstodoapp\ background\ photo.jpg') url('/14\ satanstodoapp\ background\ photo.jpg') url('/15\ satanstodoapp\ background\ photo.jpg') url('/16\ satanstodoapp\ background\ photo.jpg');
   display: none;
 }
 
@@ -56,7 +56,7 @@ body {
       background-image: url('/4\ satanstodoapp\ background\ photo.jpg');
   }
   25% {
-      background-image: url('/5\ 1\ satanstodoapp\ background\ photo.jpg');
+      background-image: url('/5\ satanstodoapp\ background\ photo.jpg');
   }
    31.25% {
       background-image: url('/6\ satanstodoapp\ background\ photo.jpg');

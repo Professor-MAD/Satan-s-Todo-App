@@ -1,0 +1,250 @@
+/* src/components/CategoryTodos/CategoryTodos.css */
+body:before {
+  content: url('/1.a.\ hell.jpg')
+  url('/2.a.\ hell.jpg')
+  url('/3.a.\ hell.jpg')
+  url('/4.a.\ hell.jpg')
+  url('/5.a.\ hell.jpg')
+  url('/6.a.\ hell.jpg')
+  ;
+  display: none;
+}
+
+/* body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  min-width: 100vw;
+  background-image: url('/1.a.\ hell.jpg');
+  background-repeat: no-repeat;
+  animation-name: slideshow;
+  animation-duration: 120s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes slideshow {
+  0% {
+      background-image: url('/1.a.\ hell.jpg');
+  }
+  16.6% {
+      background-image: url('/2.a.\ hell.jpg');
+  }
+   33.2% {
+      background-image: url('/3.a.\ hell.jpg');
+  }
+  49.8% {
+    background-image: url('/4.a.\ hell.jpg');
+}
+66.4% {
+  background-image: url('/4.a.\ hell.jpg');
+}
+83% {
+  background-image: url('/6.a.\ hell.jpg');
+}
+100% {
+  background-image: url('/7.a.\ hell.jpg');
+}
+
+} */
+
+
+.category-todos-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .category-title {
+    font-family: 'Hellscourt', sans-serif;
+    font-size: 3rem;
+    color: black;
+    text-shadow: 
+      -1px -1px 0 white,  
+      1px -1px 0 white,
+      -1px  1px 0 white,
+      1px  1px 0 white;
+  }
+  
+  .todo-content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 30px;
+    width: 100%;
+    overflow-y: auto;
+  }
+  
+
+  .todo-text {
+    font-family: 'Hellscourt', sans-serif;
+    color: white;
+    text-shadow: 
+      -1px -1px 0 black,  
+      1px -1px 0 black,
+      -1px  1px 0 black,
+      1px  1px 0 black;
+    font-size: 1.5rem;
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: calc(100% - 110px);
+    display: flex;
+    align-items: center;
+    transition: font-size 0.5s;
+  }
+  
+  .todo-text:hover {
+    overflow: visible;
+    white-space: normal;
+    font-size: 2.5rem;
+  }
+  
+  .todo-icon {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    margin: 0 5px;
+  }
+  
+  .completed {
+    text-decoration: line-through;
+    opacity: 0.6;
+  }
+  
+  .starred {
+    order: -1;
+  }
+  
+  .icon {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+  .app-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    height: 100%;
+  }
+  
+  .my-day {
+    font-family: 'Hellbone-demo', sans-serif;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    color: black;
+    font-size: 5rem;
+    letter-spacing: 5px;
+    text-shadow: 
+      -1px -1px 0 white,  
+      1px -1px 0 white,
+      -1px  1px 0 white,
+      1px  1px 0 white;
+    margin: 0;
+  }
+  
+  .my-day-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-left: 10px;
+  }
+  
+  .todo-content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-radius: 30px;
+    height: 80%;
+    width: 100%;
+    overflow-y: auto;
+  }
+  
+  .todo-item {
+    background-size: cover;
+    background-position: center;
+    padding: 5px;
+    margin: 10px;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
+  }
+  
+  .todo-text {
+    font-family: 'Hellscourt', sans-serif;
+    color: white;
+    text-shadow: 
+      -1px -1px 0 black,  
+      1px -1px 0 black,
+      -1px  1px 0 black,
+      1px  1px 0 black;
+    font-size: 1.5rem;
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: calc(100% - 110px);
+    display: flex;
+    align-items: center;
+    transition: font-size 0.5s;
+  }
+  
+  .todo-text:hover {
+    overflow: visible;
+    white-space: normal;
+    font-size: 2.5rem;
+  }
+  
+  .todo-icon {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    margin: 0 5px;
+  }
+  
+  .completed {
+    text-decoration: line-through;
+    opacity: 0.6;
+  }
+  
+  .starred {
+    order: -1;
+  }
+  
+  .footer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    background: linear-gradient(to bottom, rgb(51, 49, 49), rgba(51, 49, 49, 0));
+    min-height: 10%;
+    width: 100vw;
+    margin-top: 5px;
+    z-index: 2;
+  }
+  
+  .hamburger-icon, .add-todo-icon, .satan-speaks-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 33%;
+  }
+  
+  .hamburger-icon-image, .add-todo-icon-image, .satan-speaks-icon-image {
+    width: 50%;
+    margin: 5px 0 10px;
+    cursor: pointer;
+  }
+  

@@ -87,7 +87,6 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  background-blend-mode: multiply;
   border-radius: 30px;
   height: 80%;
   width: 100%;
@@ -95,12 +94,14 @@
 }
 
 .todo-input {
+  display: flex;
   flex: 1;
   padding: 10px;
   font-size: 2.5rem;
   font-family: 'Hellscourt', sans-serif;
   background-color: black;
   color: white;
+  width: 70vw;
 }
 
 .add-todo-button {
@@ -114,7 +115,7 @@
 .todo-item {
   background-size: cover;
   background-position: center;
-  padding: 10px;
+  padding: 5px;
   margin: 10px;
   width: 90%;
   display: flex;
@@ -132,9 +133,9 @@
     1px -1px 0 black,
     -1px  1px 0 black,
     1px  1px 0 black;
-  font-size: 2rem;
+  font-size: 1.5rem;
   flex-grow: 1; /* Take up remaining space */
-  margin: 0 10px;
+
   overflow: hidden; /* Hide any overflowing text */
   text-overflow: ellipsis; /* Add an ellipsis for overflow text */
   white-space: nowrap; /* Prevent wrapping */
@@ -151,8 +152,8 @@
 }
 
 .todo-icon {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
   margin: 0 5px;
 }
@@ -183,8 +184,8 @@
 
 .todo-input-container {
   position: fixed;
-  bottom: 10%;
-  left: 50%;
+  bottom: 15%;
+  left: 48%;
   transform: translateX(-50%);
   background-color: rgba(51, 49, 49, 0.9);
   padding: 10px;
@@ -194,3 +195,25 @@
   z-index: 1; /* Ensure it appears above other content */
 }
 
+.dropdown-menu {
+  position: absolute;
+  background-color: black;
+  border: 1px solid white;
+  z-index: 10;
+  padding: 5px;
+}
+
+.dropdown-option {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-family: 'Hellscourt', sans-serif;
+}
+
+.dropdown-option:hover {
+  background-color: #666;
+}

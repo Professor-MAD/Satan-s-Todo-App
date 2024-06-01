@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import { Link } from 'react-router-dom';
 import './SideNav.css';
 
-const SideNav = ({ isVisible, onClose }) => {
+const SideNav = ({ isVisible, onClose, onCategoryAdd }) => {
   const [categories, setCategories] = useState([]);
   const [newCategory, setNewCategory] = useState('');
   const [showInput, setShowInput] = useState(false);
-  const [editIndex, setEditIndex] = useState(-1); // -1 means no category is being edited
+  const [editIndex, setEditIndex] = useState(-1);
 
   useEffect(() => {
-    // Load categories from session storage when the component mounts
     const savedCategories = JSON.parse(sessionStorage.getItem('categories'));
     if (savedCategories) {
       setCategories(savedCategories);
@@ -17,13 +17,13 @@ const SideNav = ({ isVisible, onClose }) => {
   }, []);
 
   useEffect(() => {
-    // Save categories to session storage whenever they change
     sessionStorage.setItem('categories', JSON.stringify(categories));
-  }, [categories]);
+    onCategoryAdd(categories);
+  }, [categories, onCategoryAdd]);
 
   const handleCreateCategoryClick = () => {
     setShowInput(!showInput);
-    setNewCategory(''); // Clear the input field when toggling
+    setNewCategory('');
   };
 
   const handleInputChange = (e) => {
@@ -32,7 +32,7 @@ const SideNav = ({ isVisible, onClose }) => {
 
   const handleInputKeyPress = (e) => {
     if (e.key === 'Enter' && newCategory.trim() !== '') {
-      setCategories([...categories, newCategory]);
+      setCategories([...categories, { name: newCategory, count: 0 }]);
       setNewCategory('');
       setShowInput(false);
     }
@@ -49,7 +49,7 @@ const SideNav = ({ isVisible, onClose }) => {
 
   const handleEditChange = (e, index) => {
     const updatedCategories = [...categories];
-    updatedCategories[index] = e.target.value;
+    updatedCategories[index].name = e.target.value;
     setCategories(updatedCategories);
   };
 
@@ -71,7 +71,7 @@ const SideNav = ({ isVisible, onClose }) => {
         <a className='user-styles' href="#section1">User</a>
         <img className='search-icon' alt='search-icon-alt' src='search-symbol-satan-app.png' />
       </div>
-      <a className='other-drop-down-styles' href="#section2">My Day</a>
+      <Link className='other-drop-down-styles' to="/">My Day</Link>
       <a className='other-drop-down-styles' onClick={handleCreateCategoryClick}>Create Category</a>
       <img className='separator-line-satan-image' src='separator-line-satan.png' alt='separator-line-satan-alt' />
       {showInput && (
@@ -105,17 +105,17 @@ const SideNav = ({ isVisible, onClose }) => {
                         <input
                           type="text"
                           className="category-edit-input"
-                          value={category}
+                          value={category.name}
                           onChange={(e) => handleEditChange(e, index)}
                           autoFocus
                           onBlur={() => setEditIndex(-1)}
                         />
                       ) : (
                         <>
-                          <a className='other-drop-down-styles' href={`#category-${index}`}>
-                            {category}
-                          </a>
-                          <div className="category-count">0</div>
+                          <Link className='other-drop-down-styles' to={`/category/${category.name}`}>
+                            {category.name}
+                          </Link>
+                          <div className="category-count">{category.count}</div>
                           <img
                             src='edit-satan.png'
                             alt='edit'

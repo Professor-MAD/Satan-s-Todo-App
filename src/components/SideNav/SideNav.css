@@ -120,7 +120,7 @@
   justify-content: flex-start;
   align-items: flex-start;
   height: 3%;
-  width: 50%;
+  width: 60%;
 }
 
 .category-input,
@@ -142,11 +142,12 @@
 
 .category-container {
   display: flex;
-  flex-direction: flex-start;
+  flex-direction: row;
+  justify-content: flex-start;
   align-items: center;
   justify-content: space-between;
   width: 55%;
-  padding: 1px 12px;
+  padding: 1px 5px;
   
 }
 
@@ -177,5 +178,5 @@
 }
 
 .category-container {
-  margin-bottom: 8px;
+  margin-bottom: 0px;
 }
