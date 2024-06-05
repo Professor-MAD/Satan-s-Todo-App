@@ -4,7 +4,32 @@ import DateComponent from './components/DateComponent/DateComponent';
 import SideNav from './components/SideNav/SideNav.js';
 import SatanSpeaks from './components/SatanSpeaks/SatanSpeaks.js';
 import CategoryTodos from './components/CategoryTodos/CategoryTodos.js';
+import ThemedTodoItem from './components/ThemedTodoItem/ThemedTodoItem';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import ThemeSwitcher from './components/ThemeSwitcher/ThemeSwitcher';
+import Slideshow from './components/Slideshow/Slideshow';
+import { ThemeProvider } from './components/ThemeContext/ThemeContext';
+// // Import the functions you need from the SDKs you need
+// import { initializeApp } from "firebase/app";
+// import { getAnalytics } from "firebase/analytics";
+// // TODO: Add SDKs for Firebase products that you want to use
+// // https://firebase.google.com/docs/web/setup#available-libraries
+
+// // Your web app's Firebase configuration
+// // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// const firebaseConfig = {
+//   apiKey: "AIzaSyDVqJ7HttoIDV7Jdd-yRaZ-c3R5nSGIK6E",
+//   authDomain: "satanic-agenda.firebaseapp.com",
+//   projectId: "satanic-agenda",
+//   storageBucket: "satanic-agenda.appspot.com",
+//   messagingSenderId: "1056746325497",
+//   appId: "1:1056746325497:web:fecd3c5309feacedfb2928",
+//   measurementId: "G-PMJJ2QQKJE"
+// };
+
+// // Initialize Firebase
+// const app = initializeApp(firebaseConfig);
+// const analytics = getAnalytics(app);
 
 const App = () => {
   const [todos, setTodos] = useState(() => {
@@ -19,6 +44,7 @@ const App = () => {
     const savedCategories = sessionStorage.getItem('categories');
     return savedCategories ? JSON.parse(savedCategories) : [];
   });
+  const [currentCategory, setCurrentCategory] = useState(null);
 
   const inputRef = useRef(null);
 
@@ -30,16 +56,26 @@ const App = () => {
     sessionStorage.setItem('categories', JSON.stringify(categories));
   }, [categories]);
 
-  const handleAddTodo = () => {
+  const handleAddTodo = (category = null) => {
     if (newTodo.trim() !== '') {
-      setTodos([...todos, { text: newTodo, isCompleted: false, isStarred: false, tags: [] }]);
+      const newTodoItem = { text: newTodo, isCompleted: false, isStarred: false, tags: category ? [category] : [] };
+      setTodos([...todos, newTodoItem]);
+      
+      if (category) {
+        const updatedCategories = categories.map(cat =>
+          cat.name === category ? { ...cat, count: cat.count + 1 } : cat
+        );
+        setCategories(updatedCategories);
+      }
+      
       setNewTodo('');
       setShowInput(false);
     }
   };
 
-  const handleIconClick = () => {
+  const handleIconClick = (category = null) => {
     setShowInput(true);
+    setCurrentCategory(category);
   };
 
   const handleComplete = (index) => {
@@ -57,6 +93,16 @@ const App = () => {
   };
 
   const handleDelete = (index) => {
+    const todoToDelete = todos[index];
+    const updatedCategories = [...categories];
+    todoToDelete.tags.forEach(tag => {
+      const categoryIndex = updatedCategories.findIndex(cat => cat.name === tag);
+      if (categoryIndex !== -1) {
+        updatedCategories[categoryIndex].count -= 1;
+      }
+    });
+    setCategories(updatedCategories);
+
     const updatedTodos = todos.filter((_, i) => i !== index);
     setTodos(updatedTodos);
   };
@@ -92,12 +138,6 @@ const App = () => {
     };
   }, []);
 
-  const placardImages = [
-    '/images/task-one-placard.png',
-    '/images/task-two-placard.png',
-    '/images/task-three-placard.png'
-  ];
-
   useEffect(() => {
     const resizeText = () => {
       const todos = document.querySelectorAll('.todo-text');
@@ -129,102 +169,88 @@ const App = () => {
   };
 
   return (
-    <Router>
-      <div className="app-container">
-        <SideNav
-          isVisible={showSideNav}
-          onClose={() => setShowSideNav(false)}
-          onCategoryAdd={setCategories}
-          categories={categories}
-        />
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <div className="my-day-container">
-                  <h1 className="my-day">MY DAY</h1>
-                </div>
-                <DateComponent />
-                <div className='todo-content-container'>
-                  {todos.map((todo, index) => (
-                    <div key={index} className={`todo-item ${todo.isStarred ? 'starred' : ''}`} style={{ backgroundImage: `url(${placardImages[index % 3]})` }}>
-                      <img
-                        src={todo.isCompleted ? '/images/circle-check-off-fire.png' : '/images/circle-check-off.png'}
-                        alt="complete-icon"
-                        onClick={() => handleComplete(index)}
-                        className="todo-icon"
+    <ThemeProvider>
+      <Router>
+        <Slideshow />
+        <div className="app-container">
+          <SideNav
+            isVisible={showSideNav}
+            onClose={() => setShowSideNav(false)}
+            onCategoryAdd={setCategories}
+            categories={categories}
+          />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <div className="my-day-container">
+                    <h1 className="my-day">MY DAY</h1>
+                  </div>
+                  <DateComponent />
+                  <div className='todo-content-container'>
+                    {todos.map((todo, index) => (
+                      <ThemedTodoItem
+                        key={index}
+                        todo={todo}
+                        index={index}
+                        handleComplete={handleComplete}
+                        handleStar={handleStar}
+                        handleDelete={handleDelete}
+                        handleTag={handleTag}
+                        dropdownIndex={dropdownIndex}
+                        categories={categories}
+                        handleSelectCategory={handleSelectCategory}
                       />
-                      <p className={`todo-text ${todo.isCompleted ? 'completed' : ''}`}>{todo.text}</p>
-                      <img
-                        src="/images/tag-satan.png"
-                        alt="tag-icon"
-                        onClick={() => handleTag(index)}
-                        className="todo-icon"
-                      />
-                      {dropdownIndex === index && (
-                        <div className="dropdown-menu">
-                          {categories.map((category, idx) => (
-                            <button key={idx} className="dropdown-option" onClick={() => handleSelectCategory(index, category.name)}>{category.name}</button>
-                          ))}
-                        </div>
-                      )}
-                      <img
-                        src={todo.isStarred ? '/images/pentagram-gold.png' : '/images/pentagram-black.png'}
-                        alt="star-icon"
-                        onClick={() => handleStar(index)}
-                        className="todo-icon"
-                      />
-                      <img
-                        src="/images/garbage-black.png"
-                        alt="delete-icon"
-                        onClick={() => handleDelete(index)}
-                        className="todo-icon"
-                      />
+                    ))}
+                  </div>
+                  <footer className='footer-container'>
+                    <div className='hamburger-icon' onClick={handleHamburgerClick}>
+                      <img className='hamburger-icon-image' src="/images/hamburger-sign.png" alt="hamburger-icon-footer-nav" />
                     </div>
-                  ))}
-                </div>
-                <footer className='footer-container'>
-                  <div className='hamburger-icon' onClick={handleHamburgerClick}>
-                    <img className='hamburger-icon-image' src="/images/hamburger-sign.png" alt="hamburger-icon-footer-nav" />
-                  </div>
-                  <div className='add-todo-icon' onClick={handleIconClick}>
-                    <img className='add-todo-icon-image' src="/images/plus-sign.png" alt="plus-icon-footer-nav" />
-                  </div>
-                  <SatanSpeaks />
-                </footer>
-              </>
-            }
-          />
-          <Route
-            path="/category/:categoryName"
-            element={
-              <CategoryTodos
-                todos={todos}
-                categories={categories}
-                handleComplete={handleComplete}
-                handleStar={handleStar}
-                handleDelete={handleDelete}
-                handleHamburgerClick={handleHamburgerClick}
-                handleIconClick={handleIconClick}
-              />
-            }
-          />
-        </Routes>
-        {showInput && (
-          <div className="todo-input-container" ref={inputRef}>
-            <input
-              type="text"
-              value={newTodo}
-              onChange={(e) => setNewTodo(e.target.value)}
-              className="todo-input"
-              placeholder="Type your fate..."
+                    <div className='add-todo-icon' onClick={() => handleIconClick(null)}>
+                      <img className='add-todo-icon-image' src="/images/plus-sign.png" alt="plus-icon-footer-nav" />
+                    </div>
+                    <SatanSpeaks />
+                  </footer>
+                </>
+              }
             />
-            <button onClick={handleAddTodo} className="add-todo-button">Add</button>
-          </div>
-        )}
-      </div>
-    </Router>
+            <Route
+              path="/category/:categoryName"
+              element={
+                <CategoryTodos
+                  todos={todos}
+                  categories={categories}
+                  handleComplete={handleComplete}
+                  handleStar={handleStar}
+                  handleDelete={handleDelete}
+                  handleHamburgerClick={handleHamburgerClick}
+                  handleIconClick={handleIconClick}
+                  handleAddTodo={handleAddTodo}
+                  showInput={showInput}
+                  setShowInput={setShowInput}
+                  setNewTodo={setNewTodo}
+                />
+              }
+            />
+          </Routes>
+          {showInput && currentCategory === null && (
+            <div className="todo-input-container" ref={inputRef}>
+              <input
+                type="text"
+                value={newTodo}
+                onChange={(e) => setNewTodo(e.target.value)}
+                className="todo-input"
+                placeholder="Type your fate..."
+              />
+              <button onClick={() => handleAddTodo()} className="add-todo-button">Add</button>
+            </div>
+          )}
+          <ThemeSwitcher />
+        </div>
+      </Router>
+    </ThemeProvider>
   );
 };
 
