@@ -2,24 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import { Link } from 'react-router-dom';
 import './SideNav.css';
+import { useTheme } from '../ThemeContext/ThemeContext';
 
-const SideNav = ({ isVisible, onClose, onCategoryAdd }) => {
-  const [categories, setCategories] = useState([]);
+
+const SideNav = ({ isVisible, onClose, onCategoryAdd, categories }) => {
   const [newCategory, setNewCategory] = useState('');
   const [showInput, setShowInput] = useState(false);
   const [editIndex, setEditIndex] = useState(-1);
-
-  useEffect(() => {
-    const savedCategories = JSON.parse(sessionStorage.getItem('categories'));
-    if (savedCategories) {
-      setCategories(savedCategories);
-    }
-  }, []);
-
-  useEffect(() => {
-    sessionStorage.setItem('categories', JSON.stringify(categories));
-    onCategoryAdd(categories);
-  }, [categories, onCategoryAdd]);
 
   const handleCreateCategoryClick = () => {
     setShowInput(!showInput);
@@ -32,7 +21,8 @@ const SideNav = ({ isVisible, onClose, onCategoryAdd }) => {
 
   const handleInputKeyPress = (e) => {
     if (e.key === 'Enter' && newCategory.trim() !== '') {
-      setCategories([...categories, { name: newCategory, count: 0 }]);
+      const updatedCategories = [...categories, { name: newCategory, count: 0 }];
+      onCategoryAdd(updatedCategories);
       setNewCategory('');
       setShowInput(false);
     }
@@ -40,7 +30,7 @@ const SideNav = ({ isVisible, onClose, onCategoryAdd }) => {
 
   const handleDeleteCategory = (index) => {
     const updatedCategories = categories.filter((_, i) => i !== index);
-    setCategories(updatedCategories);
+    onCategoryAdd(updatedCategories);
   };
 
   const handleEditCategory = (index) => {
@@ -50,7 +40,7 @@ const SideNav = ({ isVisible, onClose, onCategoryAdd }) => {
   const handleEditChange = (e, index) => {
     const updatedCategories = [...categories];
     updatedCategories[index].name = e.target.value;
-    setCategories(updatedCategories);
+    onCategoryAdd(updatedCategories);
   };
 
   const onDragEnd = (result) => {
@@ -60,8 +50,35 @@ const SideNav = ({ isVisible, onClose, onCategoryAdd }) => {
     const [reorderedItem] = items.splice(result.source.index, 1);
     items.splice(result.destination.index, 0, reorderedItem);
 
-    setCategories(items);
+    onCategoryAdd(items);
   };
+
+
+
+// Inside your component, get the current theme
+const { theme } = useTheme();
+
+// Update the placardImages array based on the theme
+const placardImages = {
+    default: [
+        '/images/task-one-placard.png',
+        '/images/task-two-placard.png',
+        '/images/task-three-placard.png'
+    ],
+    darkCave: [
+        'category-page-placard-1.png',
+        'category-page-placard-2.png',
+        'category-page-placard-3.png'
+    ],
+    swamp: [
+        'acid-placard-1.png',
+        'acid-placard-2.png',
+        'acid-placard-3.png'
+    ]
+};
+
+const currentPlacardImages = placardImages[theme] || placardImages.default;
+
 
   return (
     <div className={`side-nav ${isVisible ? 'visible' : ''}`}>

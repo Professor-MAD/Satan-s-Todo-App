@@ -19,12 +19,6 @@
   src: url('./hellmuth.ttf') format('truetype');
 }
 
-
-body:before {
-  content: url('/1\ satanstodoapp\ background\ photo.jpg') url('/2\ satanstodoapp\ background\ photo.jpg') url('/3\ satanstodoapp\ background\ photo.jpg') url('/4\ satanstodoapp\ background\ photo.jpg') url('/5\ satanstodoapp\ background\ photo.jpg') url('/6\ satanstodoapp\ background\ photo.jpg') url('/7\ satanstodoapp\ background\ photo.jpg') url('/8\ satanstodoapp\ background\ photo.jpg') url('/9\ satanstodoapp\ background\ photo.jpg') url('/10\ satanstodoapp\ background\ photo.jpg') url('/11\ satanstodoapp\ background\ photo.jpg') url('/12\ satanstodoapp\ background\ photo.jpg') url('/13\ satanstodoapp\ background\ photo.jpg') url('/14\ satanstodoapp\ background\ photo.jpg') url('/15\ satanstodoapp\ background\ photo.jpg') url('/16\ satanstodoapp\ background\ photo.jpg');
-  display: none;
-}
-
 body {
   display: flex;
   flex-direction: column;
@@ -33,68 +27,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
   min-width: 100vw;
-  background-image: url('/1\ satanstodoapp\ background\ photo.jpg');
-  background-repeat: no-repeat;
-  animation-name: slideshow;
-  animation-duration: 120s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  background-color: url('/1\ satanstodoapp\ background\ photo.jpg');
-}
-
-@keyframes slideshow {
-  0% {
-      background-image: url('/1\ satanstodoapp\ background\ photo.jpg');
-  }
-  6.25% {
-      background-image: url('/2\ satanstodoapp\ background\ photo.jpg');
-  }
-  12.5% {
-      background-image: url('/3\ satanstodoapp\ background\ photo.jpg');
-  }
-  18.75% {
-      background-image: url('/4\ satanstodoapp\ background\ photo.jpg');
-  }
-  25% {
-      background-image: url('/5\ satanstodoapp\ background\ photo.jpg');
-  }
-   31.25% {
-      background-image: url('/6\ satanstodoapp\ background\ photo.jpg');
-  }
-   37.5% {
-      background-image: url('/7\ satanstodoapp\ background\ photo.jpg');
-  }
-   43.75% {
-      background-image: url('/8\ satanstodoapp\ background\ photo.jpg');
-  }
-   50% {
-      background-image: url('/9\ satanstodoapp\ background\ photo.jpg');
-  }
-   56.25% {
-      background-image: url('/10\ satanstodoapp\ background\ photo.jpg');
-  }
-   62.5% {
-      background-image: url('/11\ satanstodoapp\ background\ photo.jpg');
-  }
-   68.5% {
-      background-image: url('/12\ satanstodoapp\ background\ photo.jpg');
-  }
-   73.75% {
-      background-image: url('/13\ satanstodoapp\ background\ photo.jpg');
-  }
-   80% {
-      background-image: url('/14\ satanstodoapp\ background\ photo.jpg');
-  }
-   86.25% {
-      background-image: url('/15\ satanstodoapp\ background\ photo.jpg');
-  }
-   92.5% {
-      background-image: url('/16\ satanstodoapp\ background\ photo.jpg');
-  }
-   100% {
-      background-image: url('/1\ satanstodoapp\ background\ photo.jpg');
-  }
- 
 }
 
 code {
@@ -105,4 +37,3 @@ code {
 #root {
   height: 100vh;
 }
-

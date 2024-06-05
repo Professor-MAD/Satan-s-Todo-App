@@ -1,0 +1,56 @@
+.slideshow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Ensures the slideshow is in the background */
+}
+
+/* Default theme slideshow */
+.default-slideshow {
+  animation: defaultSlideshow 120s infinite linear;
+}
+
+@keyframes defaultSlideshow {
+ 
+  0% { background-image: url('/4\ satanstodoapp\ background\ photo.jpg'); }
+  10% { background-image: url('/5\ satanstodoapp\ background\ photo.jpg'); }
+  20% { background-image: url('/6\ satanstodoapp\ background\ photo.jpg'); }
+  30% { background-image: url('/7\ satanstodoapp\ background\ photo.jpg'); }
+  40% { background-image: url('/9\ satanstodoapp\ background\ photo.jpg'); }
+  50% { background-image: url('/11\ satanstodoapp\ background\ photo.jpg'); }
+  60% { background-image: url('/12\ satanstodoapp\ background\ photo.jpg'); }
+  70% { background-image: url('/13\ satanstodoapp\ background\ photo.jpg'); }
+  80% { background-image: url('/14\ satanstodoapp\ background\ photo.jpg'); }
+  90% { background-image: url('/15\ satanstodoapp\ background\ photo.jpg'); }
+  100% { background-image: url('/16\ satanstodoapp\ background\ photo.jpg'); }
+}
+
+/* Dark Cave theme slideshow */
+.darkCave-slideshow {
+  animation: darkCaveSlideshow 120s infinite linear;
+}
+
+@keyframes darkCaveSlideshow {
+  0% { background-image: url('/1.a.\ hell.jpg'); }
+  20% { background-image: url('/2.a.\ hell.jpg'); }
+  40% { background-image: url('/3.a.\ hell.jpg'); }
+  60% { background-image: url('/4.a.\ hell.jpg'); }
+  80% { background-image: url('/5.a.\ hell.jpg'); }
+  100% { background-image: url('/1.a.\ hell.jpg'); }
+}
+
+/* Swamp theme slideshow */
+.swamp-slideshow {
+  animation: swampSlideshow 120s infinite linear;
+}
+
+@keyframes swampSlideshow {
+  0% { background-image: url('/1.b.\ hell.jpg'); }
+  20% { background-image: url('/2.b.\ hell.jpg'); }
+  40% { background-image: url('/3.b.\ hell.jpg'); }
+  60% { background-image: url('/4.b.\ hell.jpg'); }
+  80% { background-image: url('/5.b.\ hell.jpg'); }
+  100% { background-image: url('/1.b.\ hell.jpg'); }
+}
