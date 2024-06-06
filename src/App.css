@@ -56,13 +56,16 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(to bottom, rgb(51, 49, 49), rgba(51, 49, 49, 0));
+  background: linear-gradient(to bottom, rgba(51, 49, 49, 0.8), rgba(51, 49, 49, 0.3)); /* Slightly more opaque to ensure readability */
   min-height: 10%;
   width: 100vw;
   padding: 10px;
   margin-top: 5px;
-  z-index: 2; /* Set a higher z-index to ensure the footer appears above the side navigation */
+  z-index: 1; /* Ensure it is above the sidenav */
 }
+
+/* Other existing styles remain unchanged */
+
 
 .hamburger-icon, .add-todo-icon, .satan-speaks-icon, .separator-line {
   display: flex;
@@ -71,6 +74,7 @@
   align-items: center;
   height: 100%;
   width: 33%;
+
 }
 
 .hamburger-icon-image, .add-todo-icon-image, .satan-speaks-icon-image, .separator-line-satan-image {
