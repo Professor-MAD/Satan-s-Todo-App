@@ -184,7 +184,7 @@
 
 .todo-input-container {
   position: fixed;
-  bottom: 15%;
+  bottom: 20%;
   left: 48%;
   transform: translateX(-50%);
   background-color: rgba(51, 49, 49, 0.9);

@@ -16,6 +16,7 @@
   overflow-y: auto; /* Ensure it can scroll if needed */
   transition: 0.5s;
   padding-top: 20px;
+  background-repeat: no-repeat;
 }
 
 .side-nav.visible {
