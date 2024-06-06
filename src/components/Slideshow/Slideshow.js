@@ -8,6 +8,9 @@ const Slideshow = () => {
   let themeClass = 'default-slideshow';
   if (theme === 'darkCave') themeClass = 'darkCave-slideshow';
   if (theme === 'swamp') themeClass = 'swamp-slideshow';
+  if (theme === 'bloodTundra') themeClass = 'bloodTundra-slideshow';
+  if (theme === 'palace') themeClass = 'palace-slideshow';
+  if (theme === 'fifthCircle') themeClass = 'fifthCircle-slideshow';
 
   return <div className={`slideshow ${themeClass}`}></div>;
 };

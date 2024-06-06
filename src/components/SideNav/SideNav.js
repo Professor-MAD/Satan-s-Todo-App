@@ -74,7 +74,22 @@ const placardImages = {
         'acid-placard-1.png',
         'acid-placard-2.png',
         'acid-placard-3.png'
-    ]
+    ],
+    bloodTundra: [
+      'blood-placard-1.png',
+      'blood-placard-2.png',
+      'blood-placard-3.png'
+    ],
+    palace: [
+      'palace-placard-1.png',
+      'palace-placard-2.png',
+      'palace-placard-3.png'
+    ],
+    fifthCircle: [
+      'fifth-circle-placard-1.png',
+      'fifth-circle-placard-2.png',
+      'fifth-circle-placard-3.png'
+    ],
 };
 
 const currentPlacardImages = placardImages[theme] || placardImages.default;

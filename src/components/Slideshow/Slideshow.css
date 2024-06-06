@@ -54,3 +54,42 @@
   80% { background-image: url('/5.b.\ hell.jpg'); }
   100% { background-image: url('/1.b.\ hell.jpg'); }
 }
+
+.bloodTundra-slideshow {
+  animation: bloodTundraSlideshow 120s infinite linear;
+}
+
+@keyframes bloodTundraSlideshow {
+  0% { background-image: url('/blood-tundra-1.jpg'); }
+  20% { background-image: url('/blood-tundra-2.jpg'); }
+  40% { background-image: url('/blood-tundra-3.jpg'); }
+  60% { background-image: url('/blood-tundra-4.jpg'); }
+  80% { background-image: url('/blood-tundra-5.jpg'); }
+  100% { background-image: url('/blood-tundra-6.jpg'); }
+}
+
+.palace-slideshow {
+  animation: palaceSlideshow 120s infinite linear;
+}
+
+@keyframes palaceSlideshow {
+  0% { background-image: url('/palace-interior-1.jpg'); }
+  20% { background-image: url('/palace-interior-2.jpg'); }
+  40% { background-image: url('/palace-interior-3.jpg'); }
+  60% { background-image: url('/palace-interior-4.jpg'); }
+  80% { background-image: url('/palace-interior-5.jpg'); }
+  100% { background-image: url('/palace-interior-6.jpg'); }
+}
+
+.fifthCircle-slideshow {
+  animation: fifthCircleSlideshow 120s infinite linear;
+}
+
+@keyframes fifthCircleSlideshow {
+  0% { background-image: url('/fifth-circle-1.jpg'); }
+  20% { background-image: url('/fifth-circle-2.jpg'); }
+  40% { background-image: url('/fifth-circle-3.jpg'); }
+  60% { background-image: url('/fifth-circle-4.jpg'); }
+  80% { background-image: url('/fifth-circle-5.jpg'); }
+  100% { background-image: url('/fifth-circle-1.jpg'); }
+}

@@ -19,6 +19,21 @@ const placardImages = {
     '/images/acid-placard-1.png',
     '/images/acid-placard-2.png',
     '/images/acid-placard-3.png'
+  ],
+  bloodTundra: [
+    '/images/blood-placard-1.png',
+    '/images/blood-placard-2.png',
+    '/images/blood-placard-3.png'
+  ],
+  palace: [
+    '/images/palace-placard-1.png',
+    '/images/palace-placard-2.png',
+    '/images/palace-placard-3.png'
+  ],
+  fifthCircle: [
+    '/images/fifth-circle-placard-1.png',
+    '/images/fifth-circle-placard-2.png',
+    '/images/fifth-circle-placard-3.png'
   ]
 };
 
