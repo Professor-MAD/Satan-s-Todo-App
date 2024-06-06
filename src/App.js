@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ThemeSwitcher from './components/ThemeSwitcher/ThemeSwitcher';
 import Slideshow from './components/Slideshow/Slideshow';
 import { ThemeProvider } from './components/ThemeContext/ThemeContext';
-
+import Calendar from './components/Calendar/Calendar';
 
 const App = () => {
   const [todos, setTodos] = useState(() => {
@@ -212,6 +212,12 @@ const App = () => {
                   setShowInput={setShowInput}
                   setNewTodo={setNewTodo}
                 />
+              }
+            />
+            <Route
+              path="/calendar"
+              element={
+                <Calendar handleHamburgerClick={handleHamburgerClick} />
               }
             />
           </Routes>

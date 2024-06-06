@@ -53,27 +53,23 @@ const SideNav = ({ isVisible, onClose, onCategoryAdd, categories }) => {
     onCategoryAdd(items);
   };
 
+  const { theme } = useTheme();
 
-
-// Inside your component, get the current theme
-const { theme } = useTheme();
-
-// Update the placardImages array based on the theme
-const placardImages = {
+  const placardImages = {
     default: [
-        '/images/task-one-placard.png',
-        '/images/task-two-placard.png',
-        '/images/task-three-placard.png'
+      '/images/task-one-placard.png',
+      '/images/task-two-placard.png',
+      '/images/task-three-placard.png'
     ],
     darkCave: [
-        'category-page-placard-1.png',
-        'category-page-placard-2.png',
-        'category-page-placard-3.png'
+      'category-page-placard-1.png',
+      'category-page-placard-2.png',
+      'category-page-placard-3.png'
     ],
     swamp: [
-        'acid-placard-1.png',
-        'acid-placard-2.png',
-        'acid-placard-3.png'
+      'acid-placard-1.png',
+      'acid-placard-2.png',
+      'acid-placard-3.png'
     ],
     bloodTundra: [
       'blood-placard-1.png',
@@ -90,10 +86,9 @@ const placardImages = {
       'fifth-circle-placard-2.png',
       'fifth-circle-placard-3.png'
     ],
-};
+  };
 
-const currentPlacardImages = placardImages[theme] || placardImages.default;
-
+  const currentPlacardImages = placardImages[theme] || placardImages.default;
 
   return (
     <div className={`side-nav ${isVisible ? 'visible' : ''}`}>
@@ -104,6 +99,7 @@ const currentPlacardImages = placardImages[theme] || placardImages.default;
         <img className='search-icon' alt='search-icon-alt' src='search-symbol-satan-app.png' />
       </div>
       <Link className='other-drop-down-styles' to="/">My Day</Link>
+      <Link className='other-drop-down-styles' to="/calendar">Calendar</Link>
       <a className='other-drop-down-styles' onClick={handleCreateCategoryClick}>Create Category</a>
       <img className='separator-line-satan-image' src='separator-line-satan.png' alt='separator-line-satan-alt' />
       {showInput && (

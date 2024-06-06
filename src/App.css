@@ -10,8 +10,6 @@
   src: url('./hellmuth.ttf') format('truetype');
 }
 
-
-
 .App {
   text-align: center;
   background-color: #333;
@@ -27,7 +25,6 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-
   height: 100%;
 }
 
@@ -57,17 +54,17 @@
 .footer-container {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: space-between;
+  align-items: center;
   background: linear-gradient(to bottom, rgb(51, 49, 49), rgba(51, 49, 49, 0));
   min-height: 10%;
   width: 100vw;
+  padding: 10px;
   margin-top: 5px;
   z-index: 2; /* Set a higher z-index to ensure the footer appears above the side navigation */
 }
 
-
-.hamburger-icon, .add-todo-icon, .satan-speaks-icon {
+.hamburger-icon, .add-todo-icon, .satan-speaks-icon, .separator-line {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -76,7 +73,7 @@
   width: 33%;
 }
 
-.hamburger-icon-image, .add-todo-icon-image, .satan-speaks-icon-image {
+.hamburger-icon-image, .add-todo-icon-image, .satan-speaks-icon-image, .separator-line-satan-image {
   width: 50%;
   margin: 5px 0 10px;
   cursor: pointer;
@@ -135,7 +132,6 @@
     1px  1px 0 black;
   font-size: 1.5rem;
   flex-grow: 1; /* Take up remaining space */
-
   overflow: hidden; /* Hide any overflowing text */
   text-overflow: ellipsis; /* Add an ellipsis for overflow text */
   white-space: nowrap; /* Prevent wrapping */
