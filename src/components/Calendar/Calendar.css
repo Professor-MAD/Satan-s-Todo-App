@@ -1,34 +1,99 @@
+/* Calendar.css */
+
+@font-face {
+  font-family: 'devlisummoner';
+  src: url('/devilsummoner.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'hellmuth';
+  src: url('/hellmuth.ttf') format('truetype');
+}
+
 .app-container {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.my-day-container {
+  text-align: center;
+  margin: 10px;
+}
+
+.calendar-content-container {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.calendar-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the container without stretching */
+  z-index: 0;
+}
+
+.calendar-header {
+  display: flex;
+  height: 10%;
+  width: 80%;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5px; /* Reduced gap between month and days */
+  z-index: 1;
+  padding: 50px;
+  padding-bottom: 10px;
+  padding-top: 85px;
+  letter-spacing: 5px;
   
-  .my-day-container {
-    text-align: center;
-  }
-  
-  .calendar-content-container {
-    flex: 1;
-    padding: 20px;
-  }
-  
-  .footer-container {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    background: linear-gradient(to bottom, rgb(51, 49, 49), rgba(51, 49, 49, 0));
-  }
-  
-  .separator-line {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .separator-line-satan-image {
-    width: 60%;
-    max-width: 500px;
-  }
-  
+}
+
+.month-title {
+  font-size: 3rem;
+  text-shadow: 2px 2px 4px #000;
+  color: white;
+  font-family: 'hellmuth', sans-serif; /* Apply new font */
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  width: 90%;
+  max-width: 400px; /* Ensures the calendar fits within mobile screens */
+  z-index: 1;
+}
+
+.calendar-day-header, .calendar-day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid #000;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  text-shadow: 1px 1px 2px #000;
+  color: white;
+  font-family: 'devlisummoner', sans-serif; /* Apply new font */
+}
+
+.current-day {
+  background: rgba(255, 0, 0, 0.7); /* Highlight current day */
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background: linear-gradient(to bottom, rgb(51, 49, 49), rgba(51, 49, 49, 0));
+}
