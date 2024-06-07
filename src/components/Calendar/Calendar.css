@@ -31,6 +31,7 @@
   align-items: center;
   max-width: 100%;
   overflow: hidden;
+  margin-top: 20px; /* Move the calendar content down */
 }
 
 .calendar-background {
@@ -45,24 +46,43 @@
 
 .calendar-header {
   display: flex;
-  height: 10%;
-  width: 80%;
   align-items: center;
   justify-content: center;
-  margin-bottom: 5px; /* Reduced gap between month and days */
+  width: 70%; /* Adjusted to make space for the buttons */
+  margin-bottom: 10px; /* Reduced gap between month and days */
   z-index: 1;
-  padding: 50px;
-  padding-bottom: 10px;
-  padding-top: 85px;
+  padding: 20px;
   letter-spacing: 5px;
-  
+  position: relative;
+  margin-top: 20px; /* Move the header down */
 }
 
 .month-title {
-  font-size: 3rem;
+  font-size: 2rem; /* Reduced size */
   text-shadow: 2px 2px 4px #000;
   color: white;
   font-family: 'hellmuth', sans-serif; /* Apply new font */
+  text-align: center;
+}
+
+.year {
+  font-size: 1.5rem; /* Smaller year */
+  margin-top: 5px; /* Add space between month and year */
+}
+
+.arrow-button {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.left-arrow {
+  left: -25px; /* Adjusted space from month title */
+}
+
+.right-arrow {
+  right: -25px; /* Adjusted space from month title */
 }
 
 .calendar-grid {
@@ -72,6 +92,7 @@
   width: 90%;
   max-width: 400px; /* Ensures the calendar fits within mobile screens */
   z-index: 1;
+  margin-top: 10px; /* Move the grid down */
 }
 
 .calendar-day-header, .calendar-day {
