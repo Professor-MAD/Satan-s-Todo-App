@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './Calendar.css';
 import { useTheme } from '../ThemeContext/ThemeContext';
 import SatanSpeaks from '../SatanSpeaks/SatanSpeaks';
@@ -55,10 +55,9 @@ const Calendar = ({ handleHamburgerClick }) => {
   const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
   return (
-    <div className={`app-container ${theme}-theme`}>
+    <div className={`app-container ${theme}-theme calendar-page`}>
       <div className="my-day-container"><h1 className="my-day">Calendar</h1></div>
       <div className='calendar-content-container'>
-        <img src="/images/calendar-background-image.png" className="calendar-background" alt="Calendar Background" />
         <div className="calendar-header">
           <img src="/images/left-button-satan.png" className="arrow-button left-arrow" alt="Left Arrow" onClick={handlePreviousMonth} />
           <div className="month-title">
